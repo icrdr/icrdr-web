@@ -20,8 +20,6 @@ class App extends Component {
           <Logo logo={logo}/>
           <Title title="WelcomeReact"/>
           <Title title="sfes"/>
-          <Title title="vsefw"/>
-          <Title title="qwdqf"/>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
