@@ -35,7 +35,7 @@ class TopBar extends Component {
           <Toolbar style={{
             paddingLeft: 10
           }}>
-            <Hidden mdUp>
+            <Hidden lgUp>
               <IconButton
                 style={{
                 marginLeft: 0,

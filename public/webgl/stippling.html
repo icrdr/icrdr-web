@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Stippling Shader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/ic-style.css">
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="http://console.hongliang.org/js/console.min.js?mguiOzNm"></script>
+  <script src="./js/3D/three.min.js"></script>
+  <script src="./js/3D/controls/OrbitControls.js"></script>
+  <script src="./js/3D/libs/stats.min.js"></script>
+  <script src='./js/3D/libs/dat.gui.min.js'></script>
+  <script src="./js/3D/loaders/OBJLoader.js"></script>
+  <script src="./js/3D/loaders/OBMLoader.min.js"></script>
+  <script src="./js/3D/loaders/MTLLoader.js"></script>
+  <script src="./js/3D/postprocessing/EffectComposer.js"></script>
+  <script src="./js/3D/postprocessing/RenderPass.js"></script>
+  <script src="./js/3D/postprocessing/ShaderPass.js"></script>
+  <script src="./js/3D/postprocessing/OutlinePass.js"></script>
+  <script src="./js/3D/shaders/CopyShader.js"></script>
+  <script src="./js/3D/shaders/FXAAShader.js"></script>
+  <script src="./js/3D/shaders/DotScreenShader.js"></script>
+</head>
+
+<div id="container" class="position-relative bg-light overflow-hide " style="height: 100vh;">
+  <div id="canvas-container" class="h-100"></div>
+  <div id="info-container" class="position-absolute text-center" style="bottom: 30px; left: 50%; transform: translateX(-50%)">
+    <span id="info-text" class="mx-auto p text-secondary">Stippling Shader</span>
+  </div>
+  <div id="mask-container" class="position-absolute bg-dark align-items-center text-secondary w-100 h-100 text-center"
+    style="display: flex; top: 0; left: 50%; transform: translateX(-50%);">
+    <div id="prograss-item" class="mx-auto">
+      <span class="h3">loading...</span><br />
+      <span id="prograss-meta" class="h3">0%</span>
+    </div>
+  </div>
+</div>
+
+<script src="./js/stippling.js"></script>

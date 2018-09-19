@@ -2,6 +2,7 @@ import MyTheme from './MyTheme';
 const styles = {
   content: {
     flexGrow: 1,
+    overflowY:'scroll',
     backgroundColor: MyTheme.palette.background.default,
     paddingTop: 90,
     paddingLeft: 96,

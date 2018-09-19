@@ -24,10 +24,10 @@ class App extends Component {
         <div className='d:f' style={{
           height: '100vh',
         }}>
-          <Hidden smDown>
+          <Hidden mdDown>
             <MenuSide variant='permanent'/>
           </Hidden>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Lab} />
           <Route path="/about" component={About} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/lab" component={Lab} />

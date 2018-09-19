@@ -18,13 +18,7 @@ function MenuList(props) {
   const {classes} = props
   const listItems = Data
     .menu
-    .map((item) => <ListItem
-      button
-      component={Link}
-      to={item.link}
-      key={item
-      .title
-      .toString()}>
+    .map((item, index) => <ListItem button component={Link} to={item.link} key={index}>
 
       <ListItemIcon className={classes.menuListIcon}>
         <Icon>{item.icon}</Icon>

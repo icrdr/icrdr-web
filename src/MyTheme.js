@@ -33,10 +33,14 @@ const MyTheme = createMuiTheme({
         fontSize: 96,
         fontWeight: "bold"
       },
-      subheading: {
+      headline: {
+        fontSize: 24,
+        fontWeight: "bold"
+      },
+      body1: {
         fontSize: 16,
-        lineHeight:2
-      }
+        lineHeight:1.8
+      },
     }
   });
   

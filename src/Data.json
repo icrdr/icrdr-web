@@ -19,11 +19,11 @@
     "pages": {
         "about": {
             "title": "“试试新玩具”",
-            "describe": "这是icrdr的信条。icrdr是一种网络结构的思维体，没有具体的可替换实体形态。其原型为21世纪亚洲男性，患有严重的多动症，因无法集中注意力被迫中止医学发展道路。随后出现间歇性人格分离，亲属苦不堪言。但受限于当时的科学技术，仅能使用早期实验型号的“意识剥离”设备进行治疗。治疗失败后一些更加离散的意识数据被扩散到互联网，形成思维体。该思维体的编号为0ICRDR22，后人简称icrdr。本站收录了icrdr的部分网络行为的痕迹，欢迎参观。"
+            "describe": "icrdr是一种网络结构的思维体，没有具体的可替换实体形态。其原型为21世纪亚洲男性，患有严重的多动症，因无法集中注意力被迫中止医学发展道路。随后出现间歇性人格分离，亲属苦不堪言。但受限于当时的科学技术，仅能使用早期实验型号的“意识剥离”设备进行治疗。治疗失败后一些更加离散的意识数据被扩散到互联网，形成思维体。该思维体的编号为0ICRDR22，后人简称icrdr。<br/>本站收录了icrdr的部分网络行为的痕迹，欢迎参观。"
         },
         "gallery": {
             "title": "作品画廊",
-            "describe": "作品画廊"
+            "describe": "建设中。。。"
         },
         "lab": {
             "title": "实验室",
@@ -31,7 +31,27 @@
         },
         "minecraft": {
             "title": "MINECRAFT",
-            "describe": "MINECRAFT"
+            "describe": "建设中。。。"
         }
+    },
+    "labitems": [{
+        "title": "Stippling 画风",
+        "subtitle": "用GLSL语言写的模拟Stippling（点刻法）绘图风格",
+        "content": "",
+        "imgsrc": "./static/img/stippling.png",
+        "link": "./webgl/stippling.html"
+    },{
+        "title": "肺段展示Demo",
+        "subtitle": "简单但又复杂的一个展示肺段的小样，但有着很好的配色",
+        "content": "说它简单是因为它看起来很简洁功能上也很单一，说它复杂是因为在模型的处理上花了大量的时间。",
+        "imgsrc": "./static/img/lung.png",
+        "link": "./webgl/lungDisplay.html"
+    },{
+        "title": "肝脏重建模型的呈现",
+        "subtitle": "将患者的DICOM数据重建，分段肝脏，并进行模型后处理，最终呈现在WEB端的效果",
+        "content": "webgl是极好的3D展示，但需要模型的数据进行非常严格的控制，以保证网络传输的流畅性，这就需要大量工作在后处理模型上。先用zbrush软件进行了必要的“减面”、平滑，并把导出的obj文件转化成obm格式，极大缩小了模型的尺寸。",
+        "imgsrc": "./static/img/liver.png",
+        "link": "./webgl/liverDisplay.html"
     }
+]
 }
