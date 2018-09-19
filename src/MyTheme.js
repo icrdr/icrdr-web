@@ -14,19 +14,14 @@ const MyTheme = createMuiTheme({
     typography: {
       // Use the system font instead of the default Roboto font.
       fontFamily: [
-        'Roboto',
+        '"Helvetica Neue"',
         'Helvetica',
-        'Tahoma',
-        'Arial',
+        'Arial', 
         '"PingFang SC"',
         '"Hiragino Sans GB"',
         '"Heiti SC"',
         '"MicrosoftYaHei"',
-        '"WenQuanYi Micro Hei"',
         'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"'
       ].join(','),
       display4: {
         color: '#303030',
