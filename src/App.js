@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import "shed-css/dist/index.css";
 import MyTheme from './MyTheme';
@@ -27,13 +27,18 @@ class App extends Component {
           <Hidden mdDown>
             <MenuSide variant='permanent'/>
           </Hidden>
+          <Switch>
           <Route exact path="/" component={Lab} />
           <Route path="/about" component={About} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/lab" component={Lab} />
           <Route path="/minecraft" component={Minecraft} />
+          <Route component={About} />
+          <Route onEnter={() => window.location.reload()} />
+          </Switch>
         </div>
       </MuiThemeProvider>
+      
       </Router>
     );
   }
