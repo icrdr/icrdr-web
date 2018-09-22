@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import {Link} from "react-router-dom";
 
 import "shed-css/dist/index.css";
 import MyTheme from '../MyTheme';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Icon from '@material-ui/core/Icon';
+import {Menu} from '@material-ui/icons';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
@@ -44,11 +45,11 @@ class TopBar extends Component {
                 color="inherit"
                 aria-label="Menu"
                 onClick={this.toggleMenuList}>
-                <Icon>menu</Icon>
+                <Menu />
               </IconButton>
             </Hidden>
-            <Typography
-              variant="title"
+            <Typography className="t-d:n" component={Link} to={this.props.link}
+              variant="title" 
               style={{
               fontSize: 24,
               marginLeft: 10

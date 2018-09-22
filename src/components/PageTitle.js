@@ -6,7 +6,7 @@ class PageTitle extends Component {
     return (
       <div>
         <Typography variant="display4">{this.props.title}</Typography>
-        <Typography variant="body1" style={{marginTop:20, maxWidth:600}}>{this.props.describe}</Typography>
+        <Typography variant="body1" style={{marginTop:20, maxWidth:600}}><div dangerouslySetInnerHTML={ {__html: this.props.describe} } /></Typography>
       </div>
     )
   }

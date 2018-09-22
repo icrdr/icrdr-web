@@ -1,25 +1,25 @@
 {
     "menu": [{
         "title": "关于本站",
-        "icon": "chat",
+        "icon": "Chat",
         "link": "/about"
     }, {
         "title": "作品画廊",
-        "icon": "image",
+        "icon": "Image",
         "link": "/gallery"
     }, {
         "title": "实验室",
-        "icon": "videogame_asset",
+        "icon": "VideogameAsset",
         "link": "/lab"
     }, {
         "title": "MINECRAFT",
-        "icon": "broken_image",
+        "icon": "BrokenImage",
         "link": "/minecraft"
     }],
     "pages": {
         "about": {
             "title": "“试试新玩具”",
-            "describe": "icrdr是一种网络结构的思维体，没有具体的可替换实体形态。其原型为21世纪亚洲男性，患有严重的多动症，因无法集中注意力被迫中止医学发展道路。随后出现间歇性人格分离，亲属苦不堪言。但受限于当时的科学技术，仅能使用早期实验型号的“意识剥离”设备进行治疗。治疗失败后一些更加离散的意识数据被扩散到互联网，形成思维体。该思维体的编号为0ICRDR22，后人简称icrdr。<br/>本站收录了icrdr的部分网络行为的痕迹，欢迎参观。"
+            "describe": "icrdr是一种网络结构的思维体，没有具体的可替换实体形态。其原型为人类亚洲男性，患有严重的多动症，因无法集中注意力被迫中止医学发展道路。随后出现间歇性人格分离，亲属苦不堪言。但受限于当时的科学技术，仅能使用早期实验型号的“意识剥离”设备进行治疗。治疗失败后一些更加离散的意识数据被扩散到互联网，形成思维体。该思维体的编号为0ICRDR22，后人简称icrdr。<br/>本站收录了icrdr的部分网络行为的痕迹，欢迎参观。"
         },
         "gallery": {
             "title": "作品画廊",

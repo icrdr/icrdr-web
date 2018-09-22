@@ -7,8 +7,8 @@ import MyTheme from './MyTheme';
 import Hidden from '@material-ui/core/Hidden';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 
-import Home from './pages/Home';
-import Errorx from './pages/Errorx';
+//import Home from './pages/Home';
+//import Errorx from './pages/Errorx';
 import Lab from './pages/Lab';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <Router>
       <MuiThemeProvider theme={MyTheme}>
-        <TopBar title="icrdr"/>
+        <TopBar title="icrdr" link="./"/>
         <div className='d:f' style={{
           height: '100vh',
         }}>

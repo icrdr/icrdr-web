@@ -4,8 +4,6 @@ import "shed-css/dist/index.css";
 import styles from '../Styles';
 
 import {withStyles} from '@material-ui/core';
-import PageTitle from '../components/PageTitle';
-import Data from '../Data.json';
 
 
 class Home extends Component {
