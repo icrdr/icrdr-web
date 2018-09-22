@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import "shed-css/dist/index.css";
 import MyTheme from './MyTheme';
@@ -8,13 +8,13 @@ import Hidden from '@material-ui/core/Hidden';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 
 import Home from './pages/Home';
+import Errorx from './pages/Errorx';
 import Lab from './pages/Lab';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Minecraft from './pages/Minecraft';
 import TopBar from './components/TopBar';
 import MenuSide from './components/MenuSide';
-const reload = () => window.location.reload();
 
 class App extends Component {
   render() {
@@ -33,10 +33,8 @@ class App extends Component {
           <Route path="/gallery" component={Gallery} />
           <Route path="/lab" component={Lab} />
           <Route path="/minecraft" component={Minecraft} />
-          <Route path="/webgl/stippling" component={Gallery} />
         </div>
       </MuiThemeProvider>
-      
       </Router>
     );
   }
