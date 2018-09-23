@@ -5,7 +5,7 @@ import "shed-css/dist/index.css";
 import styles from '../Styles';
 
 import Drawer from '@material-ui/core/Drawer';
-import * as Icons from '@material-ui/icons';
+import Icon from '@material-ui/core/Icon';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -19,10 +19,10 @@ function MenuList(props) {
   const listItems = Data
     .menu
     .map((item, index) => {
-      let Icon = Icons[item.icon];
+      //let Icon = Icons[item.icon];
       return (<ListItem button component={Link} to={item.link} key={index}>
       <ListItemIcon className={classes.menuListIcon}>
-        <Icon />
+        <Icon>{item.icon}</Icon>
       </ListItemIcon>
       <ListItemText
         style={{

@@ -9,7 +9,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Collapse from '@material-ui/core/Collapse';
-import Icon from '@material-ui/core/Icon';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 //import Button from '@material-ui/core/Button';
@@ -65,7 +65,7 @@ class Carditem extends Component {
           bottom: 20
         }}>
           <IconButton disabled={(info.content==='')?true:false} onClick={this.handleExpandClick}>
-            <Icon>expand_more</Icon>
+            <ExpandMore />
           </IconButton>
         </div>
 </div>

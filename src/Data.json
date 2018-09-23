@@ -1,19 +1,19 @@
 {
     "menu": [{
         "title": "关于本站",
-        "icon": "Chat",
+        "icon": "chat",
         "link": "/about"
     }, {
         "title": "作品画廊",
-        "icon": "Image",
+        "icon": "image",
         "link": "/gallery"
     }, {
         "title": "实验室",
-        "icon": "VideogameAsset",
+        "icon": "videogame_asset",
         "link": "/lab"
     }, {
         "title": "MINECRAFT",
-        "icon": "BrokenImage",
+        "icon": "broken_image",
         "link": "/minecraft"
     }],
     "pages": {
