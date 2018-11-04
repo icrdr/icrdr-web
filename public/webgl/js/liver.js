@@ -3,111 +3,74 @@ var renderer, scene, camera;
 var stats, gui;
 var raycaster, mouse;
 var grp;
-var selected;
+var intersectObj = []
 var setting = {
-  mode: 0
+  selected: 0,
+  "Portal Vein": true,
+  "Hepatic Artery": true,
+  "Hepatic Vein": true,
+  "Section I": true,
+  "Section II": true,
+  "Section III": true,
+  "Section IV": true,
+  "Section V": true,
+  "Section VI": true,
+  "Section VII": true,
+  "Section VIII": true,
+  "Tumor": true,
 }
-var colors = [
-  "#fd6847",
-  "#ffc546",
-  "#b4d64a",
-  "#75e28a",
-  "#947dd1",
-  "#a1e0f1",
-  "#89bfff",
-  "#7887e3"
-]
-var model_dict = {
-  "a": {
-    mtl: {
-      a: "#df5875"
-    },
-    info: "Hepatic Artery"
+var obj_list = [
+  {
+    filename: 'p',
+    name: "Portal Vein",
   },
-  "v": {
-    mtl: {
-      v: "#71c8e1"
-    },
-    info: "Hepatic Vein"
+  {
+    filename: 'a',
+    name: "Hepatic Artery",
   },
-  "t": {
-    mtl: {
-      t: "#ed87ab"
-    },
-    info: "Tumor"
+  {
+    filename: 'v',
+    name: "Hepatic Vein",
   },
-  "p": {
-    mtl: {
-      p_0: "#39b9bb",
-      p_1: "#fd6847",
-      p_2: "#ffc546",
-      p_3: "#b4d64a",
-      p_4: "#75e28a",
-      p_5: "#947dd1",
-      p_6: "#a1e0f1",
-      p_7: "#89bfff",
-      p_8: "#7887e3",
-    },
-    info: "Portal Vein"
+  {
+    filename: 'h_1',
+    name: "Section I",
   },
-  "h_1": {
-    mtl: {
-      h_1: "#fd6847"
-    },
-    info: "HS I"
+  {
+    filename: 'h_2',
+    name: "Section II",
   },
-  "h_2": {
-    mtl: {
-      h_2: "#ffc546"
-    },
-    info: "HS II"
+  {
+    filename: 'h_3',
+    name: "Section III",
   },
-  "h_3": {
-    mtl: {
-      h_3: "#b4d64a"
-    },
-    info: "HS III"
+  {
+    filename: 'h_4',
+    name: "Section IV",
   },
-  "h_4": {
-    mtl: {
-      h_4: "#75e28a"
-    },
-    info: "HS IV(a+b)"
+  {
+    filename: 'h_5',
+    name: "Section V",
   },
-  "h_5": {
-    mtl: {
-      h_5: "#947dd1"
-    },
-    info: "HS V"
+  {
+    filename: 'h_6',
+    name: "Section VI",
   },
-  "h_6": {
-    mtl: {
-      h_6: "#a1e0f1"
-    },
-    info: "HS VI"
+  {
+    filename: 'h_7',
+    name: "Section VII",
   },
-  "h_7": {
-    mtl: {
-      h_7: "#89bfff"
-    },
-    info: "HS VII"
+  {
+    filename: 'h_8',
+    name: "Section VIII",
   },
-  "h_8": {
-    mtl: {
-      h_8: "#7887e3"
-    },
-    info: "HS VIII"
+  {
+    filename: 't',
+    name: "Tumor",
   },
-};
+];
 
-for (i = 0; i < colors.length; i++) {
-  var j = i + 1
-  model_dict["p"].mtl["p_" + j] = colors[i]
-  model_dict["h_" + j].mtl["h_" + j] = colors[i]
-}
-console.log(model_dict)
-
-//读取进度条
+//PROGRESS
 var progress_meta = 0;
 var current_progress = 0;
 var progress_interval = setInterval(progress, 1);
@@ -128,50 +91,61 @@ function col2Hex(col_str) {
   return col_str.replace('#', '0x')
 }
 
-//显示效果更新
+function deleteObj(arr,obj) {
+  index = arr.indexOf(obj)
+  if(index != -1)arr.splice(index,1)  
+  return arr
+}
+function addObj(arr,obj) {
+  index = arr.indexOf(obj)
+  if(index == -1)arr.push(obj)
+  return arr
+}
+
 function UpdateDisplay() {
-  switch (setting.mode) {
-    case 0:
-    for (i in grp1.children) {
+  for (i in obj_list) {
+    let show = setting[obj_list[i].name]
+    let mtl = obj_list[i]['mtl']
+    let obj = obj_list[i]['obj']
+    mtl.color.setHex(col2Hex('#999999'))
 
-    }
-      grp1.visible = true
-      grp2.visible = false
-      break;
-    case 1:
-      grp1.visible = false
-      grp2.visible = true
-      break;
-  }
-
-  if (selected) {
-    $("#info-text").html(model_dict[selected.name].info);
-    $("#info-text").css('color', model_dict[selected.name].color);
-  } else {
-    $("#info-text").css('color', '#ed87ab');
-    $("#info-text").html("Touch it!");
-  }
-
-  if (selected) {
-    selected.material.color.setHex(col2Hex(model_dict[selected.name].color))
-    for (i in grp1.children) {
-      var sub = grp1.children[i]
-      if (sub != selected) {
-        sub.material.color.setHex(col2Hex('0xf8dde7'))
+    //show it or not
+    if(show!=null){
+    if(setting['selected']<3){
+      if(show==false ){
+        intersectObj = deleteObj(intersectObj, obj)
+        obj.visible = false
+      }else{
+        intersectObj = addObj(intersectObj, obj)
+        obj.visible = true
+        mtl.transparent = true
+        mtl.opacity = 0.5
+      }
+    }else{
+      obj.visible = true
+      if(show==false){
+        intersectObj = deleteObj(intersectObj, obj)
+        mtl.transparent = true
+        mtl.opacity = 0.2
+      }else{
+        intersectObj = addObj(intersectObj, obj)
+        mtl.transparent = false
+        mtl.opacity = 1.0
       }
     }
-  } else {
-    for (i in grp1.children) {
-      var sub = grp1.children[i]
-      sub.material.color.setHex(col2Hex(model_dict[sub.name].color))
-    }
   }
+}
+  s_mtl = obj_list[setting['selected']]['mtl']
+  s_mtl.color.setHex(col2Hex('#eeeeee'))
+  s_mtl.transparent = false
+  s_mtl.opacity = 1.0
+  str = obj_list[setting['selected']].name
+  $("#info-text").html(str)
 }
 
 init();
 animate();
 
-//主体初始化
 function init() {
   //INIT
   renderer = new THREE.WebGLRenderer({
@@ -202,18 +176,13 @@ function init() {
   //OBJECT
   var manager = new THREE.LoadingManager();
   var obmloader = new THREE.OBMLoader(manager);
-  var mtlLoader = new THREE.MTLLoader(manager);
 
   manager.onLoad = function () {
     console.log('Loading complete!');
-    //model_dict["h_0"].model.material.transparent = true
-    //model_dict["h_0"].model.material.opacity = 0.3
     liver.position.set(0.15, -0.1, 0);
     liver.scale.set(0.15, 0.15, 0.15);
     liver.rotation.set(0, 3.14, 0);
-    console.log(grp1)
-    console.log(grp2)
-    console.log(model_dict)
+    UpdateDisplay()
   };
 
   manager.onProgress = function (url, itemsLoaded, itemsTotal) {
@@ -223,49 +192,26 @@ function init() {
   };
 
   liver = new THREE.Group();
-  grp1 = new THREE.Group();
-  grp2 = new THREE.Group();
-  liver.add(grp1);
-  liver.add(grp2);
   scene.add(liver);
 
-  mtlLoader.setPath('./obj/liver/');
   obmloader.setPath('./obj/liver/');
 
-  mtlLoader.load('p.mtl', function (materials) {
-    materials.preload();
-    obmloader.setMaterials(materials);
-    obmloader.load('p.obm', function (object) {
-      object.traverse(function (child) {
-        if (child instanceof THREE.Mesh) {
-          var materials = child.material;
-          for (i in materials) {
-            var name = materials[i].name.replace("_mtl", "");
-            materials[i] = new THREE.MeshLambertMaterial();
-            materials[i].color.setHex(col2Hex(model_dict["p"].mtl[name]));
-          }
-          grp1.add(child);
-        }
-      });
-    });
-  });
 
-  for (key in model_dict) {
-    filename = key + '.obm'
-    if (key == "p") {
-      continue
-    }
+  for (i in obj_list) {
+    let filename = obj_list[i].filename + '.obm'
     obmloader.load(filename, function (object) {
       object.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
           child.material = new THREE.MeshLambertMaterial();
-          child.material.color.setHex(col2Hex(model_dict[child.name].mtl[child.name]))
-          model_dict[child.name]['model'] = child
-          if (child.name.indexOf("h_") > -1) {
-            grp2.add(child);
-          } else {
-            grp1.add(child);
+          child.material.color.setHex(col2Hex('#ffffff'))
+          for (j in obj_list){
+            if(obj_list[j].filename == child.name){
+              obj_list[j]['mtl'] = child.material
+              obj_list[j]['obj'] = child
+            }
           }
+          liver.add(child);
+          intersectObj.push(child)
         }
       });
     });
@@ -275,22 +221,87 @@ function init() {
   //STATS
   // --------------------------------------------
   stats = new Stats();
-  $("#canvas-container").append(stats.dom);
+  //$("#canvas-container").append(stats.dom);
   $(stats.domElement).attr("style", "position:absolute; top:0; left:0");
 
   // GUI
   // --------------------------------------------
-  gui = new dat.GUI({
-    autoPlace: false
+  var JSON = {
+      "remembered": {
+        "Default": {
+          "0": {
+            "selected": "0",
+            "Portal Vein": true,
+            "Hepatic Artery": true,
+            "Hepatic Vein": true,
+            "Section I": true,
+            "Section II": true,
+            "Section III": true,
+            "Section IV": true,
+            "Section V": true,
+            "Section VI": true,
+            "Section VII": true,
+            "Section VIII": true,
+            "Tumor": true
+          }
+        },
+        "Tumor v1": {
+          "0": {
+            "selected": "11",
+            "Portal Vein": true,
+            "Hepatic Artery": true,
+            "Hepatic Vein": false,
+            "Section I": false,
+            "Section II": false,
+            "Section III": false,
+            "Section IV": false,
+            "Section V": false,
+            "Section VI": false,
+            "Section VII": false,
+            "Section VIII": false,
+            "Tumor": true
+          }
+        },
+      },
+      "preset": "Default",
+      "closed": false,
+      "folders": {
+        "show it or not": {
+          "preset": "Default",
+          "closed": true,
+          "folders": {}
+        }
+      }
+    }
+  var gui = new dat.GUI({
+    load: JSON,
+    preset: 'Default'
   });
-  gui.add(setting, 'mode', {
-    "MODE A": 0,
-    "MODE B": 1,
-  })
-  .name("mode type")
+  gui.remember(setting);
+  gui.add(setting, 'selected', {
+    "Portal Vein": 0,
+    "Hepatic Artery": 1,
+    "Hepatic Vein": 2,
+    "Section I": 3,
+    "Section II": 4,
+    "Section III": 5,
+    "Section IV": 6,
+    "Section V": 7,
+    "Section VI": 8,
+    "Section VII": 9,
+    "Section VIII": 10,
+    "Tumor": 11,
+  }).name('Highlighted')
   .onFinishChange(function(){
     UpdateDisplay()
   })
+  var f2 = gui.addFolder('show it or not');
+  for (i in obj_list) {
+    f2.add(setting, obj_list[i].name).name(obj_list[i].name).onFinishChange(function(){
+      UpdateDisplay()
+    });
+  }
+
   $("#canvas-container").append(gui.domElement);
   $(gui.domElement).attr("style", "position:absolute; top:0; right:0");
 
@@ -325,17 +336,19 @@ $("canvas").on("tap", function (e) {
 });
 
 
-//点击选中分段
+//RAYCAST
 // --------------------------------------------
 function raycastSegment() {
   raycaster.setFromCamera(mouse, camera);
-  var intersects = raycaster.intersectObjects(grp1.children);
+  var intersects = raycaster.intersectObjects(intersectObj);
   if (intersects.length > 0) {
-    selected = intersects[0].object;
-  } else {
-    selected = null;
+    for(i in obj_list){
+      if(obj_list[i].obj == intersects[0].object){
+        setting['selected'] = i
+      }
+    }
   }
-  //UpdateDisplay();
+  UpdateDisplay();
 }
 
 //RENDER
