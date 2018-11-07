@@ -53,12 +53,19 @@
 
 
 <div id="container" class="position-relative overflow-hide " style="height: 100vh;background: #ccc">
+  <div id="canvas-container" class="h-100"></div>
   <div id="info-container" style="margin-top:0px">
     <div id="info-item" class="" style="justify-content: center;position:absolute;display: flex;bottom:20px;width: 100%">
       <span id="info-text" class="" style="color:#eee;font-size:32px;"></span>
     </div>
   </div>
-  <div id="canvas-container" class="h-100"></div>
+  <div id="ctlinfo" class="position-absolute" style="color:#eee;font-size:14px;display: flex; flex-direction: column; bottom:80px;left:10px">
+    <span>Select: left click/tap</span>
+    <span>Hide: right click</span>
+    <span>Rotate: left mouse drag/drag</span>
+    <span>Scale: mouse wheel/drag with 2 finger</span>
+    <span>Move: right mouse drag/drag with 3 finger</span>
+  </div>
   <div id="mask-container" class="position-absolute bg-dark align-items-center text-secondary w-100 h-100 text-center" style="display: flex; top: 0; left: 50%; transform: translateX(-50%);">
     <div id="prograss-item" class="mx-auto">
       <span class="h3">loading...</span>

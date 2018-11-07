@@ -103,6 +103,13 @@ function addObj(arr,obj) {
 }
 
 function UpdateDisplay() {
+  if(setting['selected']>0){
+    if(!setting[obj_list[setting['selected']-1].name]){
+      setting['selected']=0
+      $("#info-text").html("")
+    }
+  }
+
   for (i in obj_list) {
     let show = setting[obj_list[i].name]
     let mtl = obj_list[i]['mtl']
@@ -111,7 +118,7 @@ function UpdateDisplay() {
 
     //show it or not
     if(show!=null){
-    if(setting['selected']<3){
+    if(setting['selected']<4 && setting['selected']>0){
       if(show==false ){
         intersectObj = deleteObj(intersectObj, obj)
         obj.visible = false
@@ -135,12 +142,16 @@ function UpdateDisplay() {
     }
   }
 }
-  s_mtl = obj_list[setting['selected']]['mtl']
+
+
+if(setting['selected']>0){
+  s_mtl = obj_list[setting['selected']-1]['mtl']
   s_mtl.color.setHex(col2Hex('#eeeeee'))
   s_mtl.transparent = false
   s_mtl.opacity = 1.0
-  str = obj_list[setting['selected']].name
+  str = obj_list[setting['selected']-1].name
   $("#info-text").html(str)
+  }
 }
 
 init();
@@ -230,7 +241,7 @@ function init() {
       "remembered": {
         "Default": {
           "0": {
-            "selected": "0",
+            "selected": 1,
             "Portal Vein": true,
             "Hepatic Artery": true,
             "Hepatic Vein": true,
@@ -247,7 +258,7 @@ function init() {
         },
         "Tumor v1": {
           "0": {
-            "selected": "11",
+            "selected": 12,
             "Portal Vein": true,
             "Hepatic Artery": true,
             "Hepatic Vein": false,
@@ -279,20 +290,22 @@ function init() {
   });
   gui.remember(setting);
   gui.add(setting, 'selected', {
-    "Portal Vein": 0,
-    "Hepatic Artery": 1,
-    "Hepatic Vein": 2,
-    "Section I": 3,
-    "Section II": 4,
-    "Section III": 5,
-    "Section IV": 6,
-    "Section V": 7,
-    "Section VI": 8,
-    "Section VII": 9,
-    "Section VIII": 10,
-    "Tumor": 11,
-  }).name('Highlighted')
+    "None":0,
+    "Portal Vein": 1,
+    "Hepatic Artery": 2,
+    "Hepatic Vein": 3,
+    "Section I": 4,
+    "Section II": 5,
+    "Section III": 6,
+    "Section IV": 7,
+    "Section V": 8,
+    "Section VI": 9,
+    "Section VII": 10,
+    "Section VIII": 11,
+    "Tumor": 12,
+  }).name('Selected')
   .onFinishChange(function(){
+    setting[obj_list[parseInt(setting['selected'])-1].name] = true
     UpdateDisplay()
   })
   var f2 = gui.addFolder('show it or not');
@@ -322,29 +335,39 @@ function init() {
 
 //EVENT
 // --------------------------------------------
-$("canvas").on("click", function (e) {
+$("canvas").mousedown(function(e){ 
   e.preventDefault();
   mouse.x = (e.offsetX / canvasParent.width()) * 2 - 1;
   mouse.y = -(e.offsetY / canvasParent.height()) * 2 + 1;
-  raycastSegment();
+  raycastSegment(e);
 });
 $("canvas").on("tap", function (e) {
   e.preventDefault();
   mouse.x = e.touches[0].clientX;
   mouse.y = e.touches[0].clientY;
-  raycastSegment();
+  console.log(e.which);
+  raycastSegment(e);
 });
 
 
 //RAYCAST
 // --------------------------------------------
-function raycastSegment() {
+function raycastSegment(e) {
   raycaster.setFromCamera(mouse, camera);
   var intersects = raycaster.intersectObjects(intersectObj);
   if (intersects.length > 0) {
     for(i in obj_list){
       if(obj_list[i].obj == intersects[0].object){
-        setting['selected'] = i
+        console.log(obj_list[i].name + " is being hit")
+        switch (e.which) {
+          case 1:
+            setting['selected'] = parseInt(i)+1
+            break;
+          case 3:
+            setting[obj_list[i].name] = false
+            break;
+        }
+        
       }
     }
   }
