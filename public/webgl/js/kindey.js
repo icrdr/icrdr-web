@@ -155,7 +155,7 @@ function init() {
 
   manager.onLoad = function () {
     console.log('Loading complete!');
-    liver.position.set(-0.8, -1, 0.8);
+    liver.position.set(-1.05, -1, 0.8);
     liver.scale.set(0.07, 0.07, 0.07);
     liver.rotation.set(-1.6, 0, 0);
     UpdateDisplay()
