@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>肝脏重建模型的呈现</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/ic-style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="./js/3D/three.min.js"></script>
+  <script src="./js/3D/controls/OrbitControls.js"></script>
+  <script src="./js/3D/libs/stats.min.js"></script>
+  <script src='./js/3D/libs/dat.gui.min.js'></script>
+  <script src="./js/3D/libs/tween.min.js"></script>
+  <script src="./js/3D/loaders/OBJLoader.js"></script>
+  <script src="./js/3D/loaders/OBMLoader.min.js"></script>
+  <script src="./js/3D/loaders/MTLLoader.js"></script>
+</head>
+<style>
+    input#displaytoggle {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        margin-bottom: 0px;
+    }
+
+    label#displaytoggleLabel {
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        box-sizing: border-box;
+        border: 10px solid #eee;
+        position: absolute;
+        transition: all .3s ease;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    input#displaytoggle:checked+label#displaytoggleLabel {
+        border-color: #eee;
+        height: 15px;
+        width: 15px;
+        border-width: 15px;
+    }
+
+</style>
+
+
+<div id="container" class="position-relative overflow-hide " style="height: 100vh;background: #ccc">
+  <div id="canvas-container" class="h-100"></div>
+  <div id="info-container" style="margin-top:0px">
+    <div id="info-item" class="" style="justify-content: center;position:absolute;display: flex;bottom:20px;width: 100%">
+      <span id="info-text" class="" style="color:#eee;font-size:32px;"></span>
+    </div>
+  </div>
+  <div id="ctlinfo" class="position-absolute" style="color:#eee;font-size:14px;display: flex; flex-direction: column; bottom:80px;left:10px">
+    <span>Select: left click/tap</span>
+    <span>Hide: right click</span>
+    <span>Rotate: left mouse drag/drag</span>
+    <span>Scale: mouse wheel/drag with 2 finger</span>
+    <span>Move: right mouse drag/drag with 3 finger</span>
+  </div>
+  <div id="mask-container" class="position-absolute bg-dark align-items-center text-secondary w-100 h-100 text-center" style="display: flex; top: 0; left: 50%; transform: translateX(-50%);">
+    <div id="prograss-item" class="mx-auto">
+      <span class="h3">loading...</span>
+      <span id="prograss-meta" class="h3">0%</span>
+    </div>
+  </div>
+</div>
+<script src="./js/kindey.js"></script>
+

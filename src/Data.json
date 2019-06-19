@@ -42,6 +42,13 @@
             "content": "webgl是极好的3D展示，但需要模型的数据进行非常严格的控制，以保证网络传输的流畅性，这就需要大量工作在后处理模型上。先用zbrush软件进行了必要的“减面”、平滑，并把导出的obj文件转化成obm格式，极大缩小了模型的尺寸。",
             "imgsrc": "./static/img/liver.png",
             "link": "./webgl/liverDisplay.html"
+        },
+        {
+            "title": "肾脏重建模型的呈现",
+            "subtitle": "将患者的DICOM数据重建，分段肝脏，并进行模型后处理，最终呈现在WEB端的效果",
+            "content": "webgl是极好的3D展示，但需要模型的数据进行非常严格的控制，以保证网络传输的流畅性，这就需要大量工作在后处理模型上。先用zbrush软件进行了必要的“减面”、平滑，并把导出的obj文件转化成obm格式，极大缩小了模型的尺寸。",
+            "imgsrc": "./static/img/kindey.jpg",
+            "link": "./webgl/kindeyDisplay.html"
         }
     ]
 }
