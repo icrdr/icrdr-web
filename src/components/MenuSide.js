@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from "react-router-dom";
 
 import "shed-css/dist/index.css";
@@ -39,18 +39,16 @@ function MenuList(props) {
   )
 }
 
-class MenuSide extends Component {
-  render() {
-    const {classes} = this.props
+function MenuSide({classes, variant, menuOpen, event}) {
     return (
       <Drawer
-        variant={this.props.variant}
-        open={this.props.menuOpen}
-        onClose={this.props.event}
+        variant={variant}
+        open={menuOpen}
+        onClose={event}
         classes={{
         paper: classes.drawerPaper
       }}>
-        <div onClick={this.props.event}>
+        <div onClick={event}>
           <div style={{
             paddingTop: 70
           }}/>
@@ -59,7 +57,6 @@ class MenuSide extends Component {
         </div>
       </Drawer>
     )
-  }
 }
 
 export default withStyles(styles)(MenuSide)

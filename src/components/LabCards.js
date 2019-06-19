@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { useState } from 'react'
 
 import "shed-css/dist/index.css";
 
@@ -17,20 +17,14 @@ import Typography from '@material-ui/core/Typography';
 
 import Data from '../Data.json';
 
-class Carditem extends Component {
-  state = {
-    expanded: false
-  };
+export function Carditem({ info }) {
 
-  handleExpandClick = () => {
-    this.setState(state => ({
-      expanded: !state.expanded
-    }));
-  };
-  render() {
-    const {info} = this.props
-    return (
-      <Card>
+  const [isexpanded, setIsxpanded] = useState(false);
+
+  const ToggleExpand = () => setIsxpanded(!isexpanded);
+
+  return (
+    <Card>
       <div className="pos:r">
         <CardActionArea component='a' href={info.link}>
           <CardMedia
@@ -39,8 +33,8 @@ class Carditem extends Component {
             image={info.imgsrc}
             title={info.title}
             style={{
-            objectFit: 'cover'
-          }}/>
+              objectFit: 'cover'
+            }} />
           <div className="d:f a-i:f-e" style={{
             width: '100%'
           }}>
@@ -61,48 +55,37 @@ class Carditem extends Component {
         <div
           className="pos:a"
           style={{
-          right: 20,
-          bottom: 20
-        }}>
-          <IconButton disabled={(info.content==='')?true:false} onClick={this.handleExpandClick}>
+            right: 20,
+            bottom: 20,
+            display: (info.content === '') ? 'none' : 'inherit'
+          }}
+          >
+          <IconButton onClick={ToggleExpand}>
             <ExpandMore />
           </IconButton>
         </div>
-</div>
-        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+      </div>
+      <Collapse in={isexpanded} timeout="auto" unmountOnExit>
         <Divider />
-          <CardContent>
-            <Typography variant="body1">
-              {info.content}
-            </Typography>
-          </CardContent>
-        </Collapse>
-      </Card>
-    )
-  }
+        <CardContent>
+          <Typography variant="body1">
+            {info.content}
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+  )
 }
 
-class LabCards extends Component {
-  state = {
-    expanded: false
-  };
-
-  handleExpandClick = () => {
-    this.setState(state => ({
-      expanded: !state.expanded
-    }));
-  };
-  render() {
-    const carditems = Data
-      .labitems
-      .map((item, index) => <Grid item xs={12} sm={6} xl={4} key={index}>
-        <Carditem info={item}/>
-      </Grid>)
-    return (
-      <Grid container spacing={40}>
-        {carditems}
-      </Grid>
-    )
-  }
+export default function LabCards() {
+  const carditems = Data
+    .labitems
+    .map((item, index) => <Grid item xs={12} sm={6} xl={4} key={index}>
+      <Carditem info={item} />
+    </Grid>)
+  return (
+    <Grid container spacing={40}>
+      {carditems}
+    </Grid>
+  )
 }
-export default LabCards

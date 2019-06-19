@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Link} from "react-router-dom";
+import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 
 import "shed-css/dist/index.css";
 import MyTheme from '../MyTheme';
@@ -13,53 +13,46 @@ import Hidden from '@material-ui/core/Hidden';
 
 import MenuSide from './MenuSide';
 
-class TopBar extends Component {
-  state = {
-    menuOpen: false
-  };
+function TopBar({ link, title }) {
 
-  toggleMenuList = () => {
-    this.setState(prevState => ({
-      menuOpen: !prevState.menuOpen
-    }));
-  }
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  render() {
-    return (
-      <div>
-        <MenuSide menuOpen={this.state.menuOpen} event={this.toggleMenuList}/>
-        <AppBar
-          position="fixed"
-          style={{
+  const toggleMenuList = () => setIsMenuOpen(!isMenuOpen)
+
+  return (
+    <div>
+      <MenuSide menuOpen={isMenuOpen} event={toggleMenuList} />
+      <AppBar
+        position="fixed"
+        style={{
           zIndex: MyTheme.zIndex.drawer + 1
         }}>
-          <Toolbar style={{
-            paddingLeft: 10
-          }}>
-            <Hidden lgUp>
-              <IconButton
-                style={{
+        <Toolbar style={{
+          paddingLeft: 10
+        }}>
+          <Hidden lgUp>
+            <IconButton
+              style={{
                 marginLeft: 0,
                 marginRight: 0
               }}
-                color="inherit"
-                aria-label="Menu"
-                onClick={this.toggleMenuList}>
-                <Menu />
-              </IconButton>
-            </Hidden>
-            <Typography className="t-d:n" component={Link} to={this.props.link}
-              variant="title" 
-              style={{
+              color="inherit"
+              aria-label="Menu"
+              onClick={toggleMenuList}>
+              <Menu />
+            </IconButton>
+          </Hidden>
+          <Typography className="t-d:n" component={Link} to={link}
+            variant="title"
+            style={{
               fontSize: 24,
               marginLeft: 10
             }}
-              color="inherit">{this.props.title}</Typography>
-          </Toolbar>
-        </AppBar>
-      </div>
-    )
-  }
+            color="inherit">{title}</Typography>
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
 }
 
 export default TopBar
