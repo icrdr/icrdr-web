@@ -1,32 +1,59 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Layout, Menu, Breadcrumb, Typography, Row, Col, Icon } from 'antd';
 
-import "shed-css/dist/index.css";
-import MyTheme from './MyTheme';
+import { GalleryPage, LabPage } from './pages/mainPage';
 
-import Hidden from '@material-ui/core/Hidden';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { menus } from './data.json';
 
-import { Gallery, Lab} from './pages/mainPage';
-import TopBar from './components/TopBar';
-import MenuSide from './components/MenuSide';
+const { Title, Text } = Typography
+const { Header, Content, Footer } = Layout;
+
 
 function App() {
+  const menuUI = menus.map((item, index) =>
+    <Menu.Item key={index} >
+      <Link to={item.link}>
+        <Icon type={item.icon} />
+        <span>{item.title}</span>
+      </Link>
+    </Menu.Item>
+  )
+
+
   return (
     <Router>
-      <MuiThemeProvider theme={MyTheme}>
-        <TopBar title="icrdr" link="./" />
-        <div className='d:f' style={{
-          height: '100vh',
-        }}>
-          <Hidden mdDown>
-            <MenuSide variant='permanent' />
-          </Hidden>
-          <Route exact path="/" component={Lab} />
-          <Route path="/gallery" component={Gallery} />
-          <Route path="/lab" component={Lab} />
-        </div>
-      </MuiThemeProvider>
+      <Layout className="layout">
+        <Header>
+          <Text className="fl:l p-r:8 f:2 f-w:500" style={{ color: '#fff' }} level={4} >马南</Text>
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['0']}
+            style={{ lineHeight: '64px' }}
+            // selectedKeys = {['0']}
+          >
+            {menuUI}
+          </Menu>
+        </Header>
+        <Content className="p-t:1">
+          <Row type="flex" justify="center">
+            <Col xs={20} md={16}>
+              <div className="p:5" style={{ background: '#fff', minHeight: 900}}>
+                <Route exact path="/" component={GalleryPage} />
+                <Route path="/gallery" component={GalleryPage} />
+                <Route path="/lab" component={LabPage} />
+              </div>
+            </Col>
+          </Row>
+        </Content>
+        <Footer className="t-a:c">1-mu.net ©2018 Created by icrdr</Footer>
+      </Layout>
+      {/* <TopBar title="icrdr" link="./" />
+
+      <MenuSide variant='permanent' /> */}
+
+
     </Router>
   );
 }

@@ -1,29 +1,30 @@
 import React from 'react'
+import { Typography, Button} from 'antd'
+import Gallery from 'react-grid-gallery';
 
-import "shed-css/dist/index.css";
-import styles from '../Styles';
-
-import { withStyles } from '@material-ui/core';
-import PageTitle from '../components/PageTitle';
-import LabCards from '../components/LabCards';
-import Data from '../Data.json';
+import IcPageTitle from '../components/IcPageTitle';
+import IcCards from '../components/IcCards';
+import {pages} from '../data.json';
 
 
-export const Gallery = withStyles(styles)(({ classes }) => {
+
+import { experiments, artworks } from '../data.json';
+
+const { Title } = Typography
+
+export const GalleryPage = () => {
   return (
-    <main className={classes.content}>
-      <PageTitle title={Data.pages.gallery.title} describe={Data.pages.gallery.describe} />
+    <main style={{ minHeight: 1, overflow: 'auto' }}>
+    <Gallery enableImageSelection={false} rowHeight={270} images={artworks}/>
     </main>
   )
-})
+}
 
-export const Lab = withStyles(styles)(({ classes }) => {
+export const LabPage = () => {
   return (
-    <main className={classes.content}>
-      <PageTitle title={Data.pages.lab.title} describe={Data.pages.lab.describe} />
-      <div style={{ marginTop: 30 }}>
-        <LabCards />
-      </div>
+    <main >
+      <IcPageTitle title={pages.lab.title} describe={pages.lab.describe} />
+        <IcCards data={experiments}/>
     </main>
   )
-})
+}
