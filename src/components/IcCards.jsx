@@ -1,7 +1,5 @@
 import React from 'react'
-import { Card } from 'antd';
-
-import { Layout, Menu, Breadcrumb, Typography, Row, Col, Icon } from 'antd';
+import { Row, Col, Card } from 'antd';
 
 const { Meta } = Card;
 

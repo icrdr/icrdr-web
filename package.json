@@ -5,11 +5,14 @@
   "dependencies": {
     "antd": "^3.19.6",
     "eslint": "^5.16.0",
+    "lightbox-react": "^0.3.7",
+    "mauerwerk": "^2.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-grid-gallery": "^0.5.5",
+    "react-responsive": "^8.0.0-beta.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-stack-grid": "^0.7.1",
     "shed-css": "^1.4.0",
     "typescript": "^3.5.2"
   },
