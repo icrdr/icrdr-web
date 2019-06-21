@@ -1,0 +1,173 @@
+{
+    "menus": [
+        {
+            "title": "作品画廊",
+            "icon": "picture",
+            "link": "/gallery"
+        },
+        {
+            "title": "WebGl实验",
+            "icon": "experiment",
+            "link": "/lab"
+        }
+    ],
+
+    "pages": {
+        "gallery": {
+            "title": "作品画廊",
+            "describe": "建设中。。。"
+        },
+        "lab": {
+            "title": "WebGl实验",
+            "describe": "运用webgl实现的一些页面上的小玩意儿。"
+        }
+    },
+
+    "experiments": [
+        {
+            "title": "Stippling 画风",
+            "subtitle": "用GLSL语言写的模拟Stippling（点刻法）绘图风格",
+            "content": "",
+            "imgsrc": "./static/img/stippling.png",
+            "link": "./webgl/stippling.html"
+        },
+        {
+            "title": "肺段展示Demo",
+            "subtitle": "简单但又复杂的一个展示肺段的小样，但有着很好的配色",
+            "content": "说它简单是因为它看起来很简洁功能上也很单一，说它复杂是因为在模型的处理上花了大量的时间。",
+            "imgsrc": "./static/img/lung.png",
+            "link": "./webgl/lungDisplay.html"
+        },
+        {
+            "title": "肝脏重建模型的呈现",
+            "subtitle": "将患者的DICOM数据重建，分段肝脏，并进行模型后处理，最终呈现在WEB端的效果",
+            "content": "webgl是极好的3D展示，但需要模型的数据进行非常严格的控制，以保证网络传输的流畅性，这就需要大量工作在后处理模型上。先用zbrush软件进行了必要的“减面”、平滑，并把导出的obj文件转化成obm格式，极大缩小了模型的尺寸。",
+            "imgsrc": "./static/img/liver.png",
+            "link": "./webgl/liverDisplay.html"
+        },
+        {
+            "title": "肾脏重建模型的呈现",
+            "subtitle": "将患者的DICOM数据重建，分段肝脏，并进行模型后处理，最终呈现在WEB端的效果",
+            "content": "webgl是极好的3D展示，但需要模型的数据进行非常严格的控制，以保证网络传输的流畅性，这就需要大量工作在后处理模型上。先用zbrush软件进行了必要的“减面”、平滑，并把导出的obj文件转化成obm格式，极大缩小了模型的尺寸。",
+            "imgsrc": "./static/img/kindey.jpg",
+            "link": "./webgl/kindeyDisplay.html"
+        }
+    ],
+
+    "artworks": [
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/1.jpg",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/1-480x270.jpg",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/05/output.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/05/output-480x332.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 332
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/unnamed-file.jpg",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/unnamed-file-480x270.jpg",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/01/workflow_main.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/2019-06-21-024803-480x313.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 313
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/01/Artboard-1.jpg",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/01/Artboard-1-480x322.jpg",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 322
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/10_00000.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/10_00000-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/Week05-tile.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/Week05-tile-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/Week04-tile.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/Week04-tile-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/Week03-tile.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/Week03-tile-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/Week02-tile.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/Week02-tile-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/Week01-title.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/Week01-title-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/unnamed-file-1.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/unnamed-file-1-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/final1.jpg",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/final1-480x270.jpg",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/final.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/final-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/main.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/main-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/1.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/1-480x360.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 360
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/a.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/a-480x320.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/my_bed_by_icrdr-d8h95z8.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/my_bed_by_icrdr-d8h95z8-480x270.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 270
+        },
+        {
+            "src": "https://www.1-mu.net/wp-content/uploads/2019/06/screenshot003.png",
+            "thumbnail": "https://www.1-mu.net/wp-content/uploads/2019/06/screenshot003-480x384.png",
+            "thumbnailWidth": 480,
+            "thumbnailHeight": 384
+        }
+    ]
+}
