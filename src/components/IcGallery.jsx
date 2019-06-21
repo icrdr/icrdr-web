@@ -21,7 +21,8 @@ export default function IcGallery({ data }) {
   return (
     <div>
       <StackGrid
-        columnWidth={WindowWidth<768? WindowWidth-40:320}
+        columnWidth={WindowWidth<768? "100%":"33.33%"}
+        style={{overflow:"hidden"}}
       >
         {imgUI}
       </StackGrid>

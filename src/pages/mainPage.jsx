@@ -12,7 +12,7 @@ import { experiments, artworks } from '../data.json';
 
 export function GalleryPage() {
   return (
-    <Col span={24}>
+    <Col span={22}>
     <main className="p:.1" style={{ minHeight: 1, overflow: 'auto' }}>
       <IcGallery data={artworks} />
     </main>
