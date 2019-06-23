@@ -4,10 +4,11 @@ import { Col } from 'antd';
 import IcPageTitle from '../components/IcPageTitle';
 import IcCards from '../components/IcCards';
 import IcGallery from '../components/IcGallery'
-
-import ThreeTest from '../threejs/ThreeTest'
-import { pages } from '../data.json';
+// import ThreeTest from '../threejs/ThreeTest'
 // import DicomViewer from '../threejs/DicomViewer'
+
+import { pages } from '../data.json';
+
 
 import { experiments, artworks } from '../data.json';
 
@@ -25,14 +26,6 @@ export function LabPage() {
     <Col xs={24} md={16} className="p:2" style={{ background: '#fff', minHeight: 900 }}>
       <IcPageTitle title={pages.lab.title} describe={pages.lab.describe} />
       <IcCards data={experiments} />
-    </Col>
-  )
-}
-
-export function DicomPage() {
-  return (
-    <Col xs={24} md={16} style={{ background: '#fff', minHeight: 900 }}>
-      <ThreeTest/>
     </Col>
   )
 }

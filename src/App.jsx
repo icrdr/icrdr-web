@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import { Layout, Menu, Typography, Row, Col, Icon } from 'antd';
 
-import { GalleryPage, LabPage, DicomPage } from './pages/mainPage';
+import { GalleryPage, LabPage } from './pages/mainPage';
 
 import { menus } from './data.json';
 
@@ -49,7 +49,7 @@ function App() {
         </Header>
         <Content className="p-t:1">
           <Row type="flex" justify="center">
-            <Route exact path="/" component={DicomPage} />
+            <Route exact path="/" component={GalleryPage} />
             <Route path="/gallery" component={GalleryPage} />
             <Route path="/lab" component={LabPage} />
           </Row>

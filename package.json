@@ -1,23 +1,15 @@
 {
-  "name": "react-learn",
+  "name": "icrdr-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.19.6",
-    "core-js": "3",
-    "eslint": "^5.16.0",
+    "antd": "^3.19.7",
     "lightbox-react": "^0.3.7",
-    "mauerwerk": "^2.0.2",
-    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-responsive": "^8.0.0-beta.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-stack-grid": "^0.7.1",
-    "shed-css": "^1.4.0",
-    "three": "^0.105.2",
-    "typescript": "^3.5.2"
+    "react-stack-grid": "^0.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,5 +32,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "shed-css": "^1.4.0"
+  }
 }
