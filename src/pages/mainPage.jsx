@@ -7,7 +7,7 @@ import IcGallery from '../components/IcGallery'
 
 import ThreeTest from '../threejs/ThreeTest'
 import { pages } from '../data.json';
-import DicomViewer from '../threejs/DicomViewer'
+// import DicomViewer from '../threejs/DicomViewer'
 
 import { experiments, artworks } from '../data.json';
 
@@ -32,7 +32,7 @@ export function LabPage() {
 export function DicomPage() {
   return (
     <Col xs={24} md={16} style={{ background: '#fff', minHeight: 900 }}>
-      <DicomViewer/>
+      <ThreeTest/>
     </Col>
   )
 }

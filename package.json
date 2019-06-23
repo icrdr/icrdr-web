@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ami.js": "^0.32.0",
     "antd": "^3.19.6",
     "core-js": "3",
-    "dat.gui": "^0.7.6",
     "eslint": "^5.16.0",
     "lightbox-react": "^0.3.7",
     "mauerwerk": "^2.0.2",
