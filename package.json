@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ami.js": "^0.32.0",
     "antd": "^3.19.6",
+    "core-js": "3",
+    "dat.gui": "^0.7.6",
     "eslint": "^5.16.0",
     "lightbox-react": "^0.3.7",
     "mauerwerk": "^2.0.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-responsive": "^8.0.0-beta.0",
@@ -14,6 +18,7 @@
     "react-scripts": "3.0.1",
     "react-stack-grid": "^0.7.1",
     "shed-css": "^1.4.0",
+    "three": "^0.105.2",
     "typescript": "^3.5.2"
   },
   "scripts": {
@@ -36,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
