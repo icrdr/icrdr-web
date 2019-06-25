@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "antd": "^3.19.7",
+    "dat.gui": "^0.7.6",
     "lightbox-react": "^0.3.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-stack-grid": "^0.7.1"
+    "react-stack-grid": "^0.7.1",
+    "three": "^0.105.2"
   },
   "scripts": {
     "start": "react-scripts start",
