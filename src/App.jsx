@@ -54,7 +54,7 @@ function App() {
             <Route path="/lab" component={LabPage} />
           </Row>
         </Content>
-        <Footer className="t-a:c">1-mu.net ©2018 Created by icrdr</Footer>
+        <Footer className="t-a:c"><div>1-mu.net ©2018 Created by icrdr</div><div>备案号：陕ICP备16015882号-1</div></Footer>
       </Layout>
       {/* <TopBar title="icrdr" link="./" />
 
