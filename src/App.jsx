@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import { Layout, Menu, Typography, Row, Col, Icon } from 'antd';
 
 import { GalleryPage, LabPage, DicomPage } from './pages/mainPage';
-
+import DicomPage2 from './threejs/DicomV';
 import { menus } from './data.json';
 
 const { Text } = Typography
@@ -49,12 +49,13 @@ function App() {
         </Header>
         <Content className="p-t:1">
           <Row type="flex" justify="center">
-            <Route exact path="/" component={DicomPage} />
+            <Route exact path="/" component={GalleryPage} />
+            <Route exact path="/dicom" component={DicomPage2} />
             <Route path="/gallery" component={GalleryPage} />
             <Route path="/lab" component={LabPage} />
           </Row>
         </Content>
-        <Footer className="t-a:c">1-mu.net ©2018 Created by icrdr</Footer>
+        <Footer className="t-a:c"><div>1-mu.net ©2018 Created by icrdr</div><div>备案号：陕ICP备16015882号-1</div></Footer>
       </Layout>
       {/* <TopBar title="icrdr" link="./" />
 

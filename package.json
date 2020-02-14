@@ -11,7 +11,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-stack-grid": "^0.7.1",
-    "three": "^0.105.2"
+    "three": "^0.110.0"
   },
   "scripts": {
     "start": "react-scripts start",
